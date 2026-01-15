@@ -44,11 +44,6 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-image: url('https://imgur.com/gDC82fW.gif');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -56,6 +51,19 @@
             overflow-x: hidden;
             cursor: url("https://i.imgur.com/5v5M8gh.png"), auto;
             padding: 10px;
+        }
+
+        .app-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://imgur.com/gDC82fW.gif');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
         }
 
         a,
@@ -148,7 +156,7 @@
         }
 
         .identity {
-            padding-top: 5px;
+            padding-top: 25px;
             /* Slight push down to align with bottom half of avatar */
             flex-grow: 1;
             display: flex;
@@ -454,237 +462,234 @@
 </head>
 
 <body>
+    <div class="app-background"></div>
+    <canvas id="snowCanvas"></canvas>
 
-    <body>
-        <canvas id="snowCanvas"></canvas>
-
-        <div id="root">
-            <main class="glass-card">
-                <header class="profile-header">
-                    <div class="cover-image"></div>
-                    <div class="profile-info">
-                        <div class="avatar"></div>
-                        <div class="identity">
-                            <div class="original_name">
-                                Hasu
-                                <i class="fas fa-check-circle verify-badge" title="Verified"></i>
-                            </div>
-                            <div class="username-pronouns">hasukatsu • He/him</div>
-
+    <div id="root">
+        <main class="glass-card">
+            <header class="profile-header">
+                <div class="cover-image"></div>
+                <div class="profile-info">
+                    <div class="avatar"></div>
+                    <div class="identity">
+                        <div class="original_name">
+                            Hasu
+                            <i class="fas fa-check-circle verify-badge" title="Verified"></i>
                         </div>
+                        <div class="username-pronouns">hasukatsu • He/him</div>
+
                     </div>
-                </header>
+                </div>
+            </header>
 
-                <div class="content-body">
-                    <div class="section-title">Thông Tin Liên Hệ</div>
+            <div class="content-body">
+                <div class="section-title">Thông Tin Liên Hệ</div>
 
-                    <div class="link-grid">
-                        <!-- Facebook -->
-                        <div class="link-item clickable"
-                            onclick="window.open('https://www.facebook.com/Katsuu.12', '_blank')">
-                            <div class="link-thumb" style="background-image: url('https://imgur.com/q8qqsAy.jpg');">
-                            </div>
-                            <div class="link-details">
-                                <div class="link-title">Facebook</div>
-                                <div class="link-subtitle">@katsuu.12</div>
-                            </div>
-                            <div class="link-action">
-                                <span class="btn-action">OPEN</span>
-                            </div>
+                <div class="link-grid">
+                    <!-- Facebook -->
+                    <div class="link-item clickable"
+                        onclick="window.open('https://www.facebook.com/Katsuu.12', '_blank')">
+                        <div class="link-thumb" style="background-image: url('https://imgur.com/q8qqsAy.jpg');">
                         </div>
-
-                        <!-- Youtube -->
-                        <div class="link-item clickable"
-                            onclick="window.open('https://www.youtube.com/@hasu_katsu', '_blank')">
-                            <div class="link-thumb" style="background-image: url('https://imgur.com/Y1axNQZ.jpg');">
-                            </div>
-                            <div class="link-details">
-                                <div class="link-title">Youtube</div>
-                                <div class="link-subtitle">Hasu</div>
-                            </div>
-                            <div class="link-action">
-                                <span class="btn-action">OPEN</span>
-                            </div>
+                        <div class="link-details">
+                            <div class="link-title">Facebook</div>
+                            <div class="link-subtitle">@katsuu.12</div>
                         </div>
-
-                        <!-- Gmail -->
-                        <div class="link-item clickable" onclick="copyToClipboard('hasukatsu12@gmail.com', event)">
-                            <div class="link-thumb" style="background-image: url('https://i.imgur.com/k1Qbqxg.jpg');">
-                            </div>
-                            <div class="link-details">
-                                <div class="link-title">Gmail</div>
-                                <div class="link-subtitle">Click để coppy(●'◡'●)</div>
-                            </div>
-                            <div class="link-action">
-                                <span class="btn-action blue">COPY</span>
-                            </div>
+                        <div class="link-action">
+                            <span class="btn-action">OPEN</span>
                         </div>
                     </div>
 
-                    <div class="section-title">Góc nhỏ của Hasu</div>
-                    <div class="link-grid">
-                        <!-- Bot Discord -->
-                        <div class="link-item clickable"
-                            onclick="window.open('https://discord.com/oauth2/authorize?client_id=998801164902613022', '_blank')">
-                            <div class="link-thumb"
-                                style="background-image: url('https://images-eds-ssl.xboxlive.com/image?url=4rt9.lXDC4H_93laV1_eHHFT949fUipzkiFOBH3fAiZZUCdYojwUyX2aTonS1aIwMrx6NUIsHfUHSLzjGJFxxsG72wAo9EWJR4yQWyJJaDb6rYcBtJvTvH3UoAS4JFNDaxGhmKNaMwgElLURlRFeVkLCjkfnXmWtINWZIrPGYq0-&format=source');">
-                            </div>
-                            <div class="link-details">
-                                <div class="link-title">Add Bot Discord</div>
-                                <div class="link-subtitle">Arya-Bot by Hasu</div>
-                            </div>
-                            <div class="link-action">
-                                <span class="btn-action">OPEN</span>
-                            </div>
+                    <!-- Youtube -->
+                    <div class="link-item clickable"
+                        onclick="window.open('https://www.youtube.com/@hasu_katsu', '_blank')">
+                        <div class="link-thumb" style="background-image: url('https://imgur.com/Y1axNQZ.jpg');">
                         </div>
-                        <!-- Seanime -->
-                        <div class="link-item clickable"
-                            onclick="window.open('https://seanime.hasukatsu.site/', '_blank')">
-                            <div class="link-thumb"
-                                style="background-image: url('https://seanime.app/seanime-logo.png');">
-                            </div>
-                            <div class="link-details">
-                                <div class="link-title">Seanime</div>
-                                <div class="link-subtitle">Web self-host xem anime không quảng cáo cục mup của hasu🐧
-                                </div>
-                            </div>
-                            <div class="link-action">
-                                <span class="btn-action">OPEN</span>
-                            </div>
+                        <div class="link-details">
+                            <div class="link-title">Youtube</div>
+                            <div class="link-subtitle">Hasu</div>
+                        </div>
+                        <div class="link-action">
+                            <span class="btn-action">OPEN</span>
+                        </div>
+                    </div>
+
+                    <!-- Gmail -->
+                    <div class="link-item clickable" onclick="copyToClipboard('hasukatsu12@gmail.com', event)">
+                        <div class="link-thumb" style="background-image: url('https://i.imgur.com/k1Qbqxg.jpg');">
+                        </div>
+                        <div class="link-details">
+                            <div class="link-title">Gmail</div>
+                            <div class="link-subtitle">Click để coppy(●'◡'●)</div>
+                        </div>
+                        <div class="link-action">
+                            <span class="btn-action blue">COPY</span>
                         </div>
                     </div>
                 </div>
-            </main>
-        </div>
 
-        <!-- Music -->
-        <audio id="bgMusic" loop>
-            <source
-                src="https://dat887.000webhostapp.com/wp-content/uploads/2021/12/crazy_frog_we_wish_you_a_merry_christmas_mv_-7653592806440656651-1.mp3"
-                type="audio/mp3">
-            <source src="cache/audio.wav" type="audio/wav">
-        </audio>
-
-        <!-- Popup -->
-        <div class="popup-overlay" id="welcomePopup">
-            <div class="popup-content">
-                <div class="popup-close" onclick="closePopup()"><i class="fas fa-times"></i></div>
-                <div class="popup-title">Chúc Bạn Một Ngày Tốt Lành</div>
-                <div class="popup-message">Cảm ơn bạn đã ghé thăm bio của mình :></div>
+                <div class="section-title">Góc nhỏ của Hasu</div>
+                <div class="link-grid">
+                    <!-- Bot Discord -->
+                    <div class="link-item clickable"
+                        onclick="window.open('https://discord.com/oauth2/authorize?client_id=998801164902613022', '_blank')">
+                        <div class="link-thumb"
+                            style="background-image: url('https://images-eds-ssl.xboxlive.com/image?url=4rt9.lXDC4H_93laV1_eHHFT949fUipzkiFOBH3fAiZZUCdYojwUyX2aTonS1aIwMrx6NUIsHfUHSLzjGJFxxsG72wAo9EWJR4yQWyJJaDb6rYcBtJvTvH3UoAS4JFNDaxGhmKNaMwgElLURlRFeVkLCjkfnXmWtINWZIrPGYq0-&format=source');">
+                        </div>
+                        <div class="link-details">
+                            <div class="link-title">Add Bot Discord</div>
+                            <div class="link-subtitle">Arya-Bot by Hasu</div>
+                        </div>
+                        <div class="link-action">
+                            <span class="btn-action">OPEN</span>
+                        </div>
+                    </div>
+                    <!-- Seanime -->
+                    <div class="link-item clickable" onclick="window.open('https://seanime.hasukatsu.site/', '_blank')">
+                        <div class="link-thumb" style="background-image: url('https://seanime.app/seanime-logo.png');">
+                        </div>
+                        <div class="link-details">
+                            <div class="link-title">Seanime</div>
+                            <div class="link-subtitle">Web self-host xem anime không quảng cáo cục mup của hasu🐧
+                            </div>
+                        </div>
+                        <div class="link-action">
+                            <span class="btn-action">OPEN</span>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </main>
+    </div>
+
+    <!-- Music -->
+    <audio id="bgMusic" loop>
+        <source
+            src="https://dat887.000webhostapp.com/wp-content/uploads/2021/12/crazy_frog_we_wish_you_a_merry_christmas_mv_-7653592806440656651-1.mp3"
+            type="audio/mp3">
+        <source src="cache/audio.wav" type="audio/wav">
+    </audio>
+
+    <!-- Popup -->
+    <div class="popup-overlay" id="welcomePopup">
+        <div class="popup-content">
+            <div class="popup-close" onclick="closePopup()"><i class="fas fa-times"></i></div>
+            <div class="popup-title">Chúc Bạn Một Ngày Tốt Lành</div>
+            <div class="popup-message">Cảm ơn bạn đã ghé thăm bio của mình :></div>
         </div>
+    </div>
 
-        <!-- Scripts -->
-        <script>
-            // Copy to Clipboard
-            function copyToClipboard(text, event) {
-                event.stopPropagation(); // Prevent triggering parent click
-                navigator.clipboard.writeText(text).then(() => {
-                    alert('Đã copy ' + text + ' thành công!');
-                }).catch(err => {
-                    // Fallback for older browsers
-                    const textArea = document.createElement("textarea");
-                    textArea.value = text;
-                    document.body.appendChild(textArea);
-                    textArea.select();
-                    try {
-                        document.execCommand('copy');
-                        alert('Đã copy thành công!');
-                    } catch (err) {
-                        console.error('Không thể copy', err);
-                    }
-                    document.body.removeChild(textArea);
-                });
+    <!-- Scripts -->
+    <script>
+        // Copy to Clipboard
+        function copyToClipboard(text, event) {
+            event.stopPropagation(); // Prevent triggering parent click
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Đã copy ' + text + ' thành công!');
+            }).catch(err => {
+                // Fallback for older browsers
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    alert('Đã copy thành công!');
+                } catch (err) {
+                    console.error('Không thể copy', err);
+                }
+                document.body.removeChild(textArea);
+            });
+        }
+
+        // Popup Logic
+        function closePopup() {
+            document.getElementById('welcomePopup').classList.remove('active');
+            // Play music on user interaction (popup close) if autoplay failed
+            const audio = document.getElementById('bgMusic');
+            if (audio.paused) {
+                audio.play().catch(e => console.log('Audio play failed: Autoplay policy may require user gesture', e));
             }
+        }
 
-            // Popup Logic
-            function closePopup() {
-                document.getElementById('welcomePopup').classList.remove('active');
-                // Play music on user interaction (popup close) if autoplay failed
-                const audio = document.getElementById('bgMusic');
-                if (audio.paused) {
-                    audio.play().catch(e => console.log('Audio play failed: Autoplay policy may require user gesture', e));
+        window.onload = function () {
+            setTimeout(() => {
+                document.getElementById('welcomePopup').classList.add('active');
+            }, 500);
+        }
+
+        // Canvas Snow Effect
+        function initSnow() {
+            const canvas = document.getElementById('snowCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+
+            let width = window.innerWidth;
+            let height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+
+            const snowflakes = [];
+            const numFlakes = 60;
+
+            class Flake {
+                constructor() {
+                    this.reset(true);
+                }
+
+                reset(initial = false) {
+                    this.x = Math.random() * width;
+                    this.y = initial ? Math.random() * height : -10;
+                    this.size = Math.random() * 3 + 2; // Radius
+                    this.speedY = Math.random() * 1 + 0.5;
+                    this.speedX = (Math.random() - 0.5) * 0.5;
+                    this.opacity = Math.random() * 0.5 + 0.3;
+                }
+
+                update() {
+                    this.y += this.speedY;
+                    this.x += this.speedX;
+                    if (this.y > height) this.reset();
+                    if (this.x > width) this.x = 0;
+                    if (this.x < 0) this.x = width;
+                }
+
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+                    ctx.shadowBlur = 5;
+                    ctx.shadowColor = "white";
+                    ctx.fill();
+                    ctx.closePath();
                 }
             }
 
-            window.onload = function () {
-                setTimeout(() => {
-                    document.getElementById('welcomePopup').classList.add('active');
-                }, 500);
+            for (let i = 0; i < numFlakes; i++) {
+                snowflakes.push(new Flake());
             }
 
-            // Canvas Snow Effect
-            function initSnow() {
-                const canvas = document.getElementById('snowCanvas');
-                if (!canvas) return;
-                const ctx = canvas.getContext('2d');
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+                snowflakes.forEach(flake => {
+                    flake.update();
+                    flake.draw();
+                });
+                requestAnimationFrame(animate);
+            }
 
-                let width = window.innerWidth;
-                let height = window.innerHeight;
+            animate();
+
+            window.addEventListener('resize', () => {
+                width = window.innerWidth;
+                height = window.innerHeight;
                 canvas.width = width;
                 canvas.height = height;
+            });
+        }
 
-                const snowflakes = [];
-                const numFlakes = 60;
-
-                class Flake {
-                    constructor() {
-                        this.reset(true);
-                    }
-
-                    reset(initial = false) {
-                        this.x = Math.random() * width;
-                        this.y = initial ? Math.random() * height : -10;
-                        this.size = Math.random() * 3 + 2; // Radius
-                        this.speedY = Math.random() * 1 + 0.5;
-                        this.speedX = (Math.random() - 0.5) * 0.5;
-                        this.opacity = Math.random() * 0.5 + 0.3;
-                    }
-
-                    update() {
-                        this.y += this.speedY;
-                        this.x += this.speedX;
-                        if (this.y > height) this.reset();
-                        if (this.x > width) this.x = 0;
-                        if (this.x < 0) this.x = width;
-                    }
-
-                    draw() {
-                        ctx.beginPath();
-                        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                        ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
-                        ctx.shadowBlur = 5;
-                        ctx.shadowColor = "white";
-                        ctx.fill();
-                        ctx.closePath();
-                    }
-                }
-
-                for (let i = 0; i < numFlakes; i++) {
-                    snowflakes.push(new Flake());
-                }
-
-                function animate() {
-                    ctx.clearRect(0, 0, width, height);
-                    snowflakes.forEach(flake => {
-                        flake.update();
-                        flake.draw();
-                    });
-                    requestAnimationFrame(animate);
-                }
-
-                animate();
-
-                window.addEventListener('resize', () => {
-                    width = window.innerWidth;
-                    height = window.innerHeight;
-                    canvas.width = width;
-                    canvas.height = height;
-                });
-            }
-
-            window.addEventListener('load', initSnow);
-        </script>
-    </body>
+        window.addEventListener('load', initSnow);
+    </script>
+</body>
 
 </html>
