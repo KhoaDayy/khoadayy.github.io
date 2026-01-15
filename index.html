@@ -398,23 +398,30 @@
         }
 
         /* Responsive */
+        /* Responsive */
         @media (max-width: 480px) {
             #root {
-                padding: 0;
+                padding: 15px;
+                /* Add margin around the card */
                 max-width: 100%;
             }
 
             .glass-card {
-                border-radius: 0;
-                border: none;
+                border-radius: 25px;
+                /* Restore rounded corners */
+                border: 1px solid rgba(255, 255, 255, 0.6);
                 background: rgba(255, 255, 255, 0.92);
-                min-height: 100vh;
-                box-shadow: none;
+                min-height: auto;
+                /* Remove full height constraint */
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             }
 
             body {
                 padding: 0;
-                display: block;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
             }
 
             /* Maintain ROW layout on mobile, adjusting sizes slightly if needed */
