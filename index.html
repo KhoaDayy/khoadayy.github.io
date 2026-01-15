@@ -214,12 +214,17 @@
             font-size: 16px;
             font-weight: 800;
             color: var(--text-color);
-            margin: 10px 0 15px;
-            /* Reduced top margin from 20px to 10px */
+            margin: 30px 0 15px;
+            /* Increased separation between sections */
             display: flex;
             align-items: center;
             gap: 10px;
             opacity: 0.9;
+        }
+
+        .section-title:first-child {
+            margin-top: 10px;
+            /* Keep the first title close to the profile */
         }
 
         .section-title::before {
@@ -432,30 +437,29 @@
                 min-height: 100vh;
             }
 
-            /* Maintain ROW layout on mobile, adjusting sizes slightly if needed */
+            /* Maintain ROW layout on mobile, adjusting sizes to match PC feel */
             .profile-info {
-                padding: 0 15px 20px;
-                /* Reducing padding slightly for small screens */
+                padding: 0 20px 20px;
+                /* Match PC padding structure */
             }
 
             .avatar {
-                width: 100px;
-                height: 100px;
-                margin-top: -50px;
-                margin-right: 12px;
+                width: 125px;
+                /* Larger avatar for mobile to match PC look */
+                height: 125px;
+                margin-top: -65px;
+                /* Maintain ~50% overlap */
+                margin-right: 15px;
             }
 
             .original_name {
-                font-size: 22px;
-            }
-
-            .skill-tag {
-                font-size: 10px;
-                padding: 3px 8px;
+                font-size: 24px;
+                /* Larger text */
             }
 
             .cover-image {
-                height: 160px;
+                height: 170px;
+                /* Taller banner to match PC proportion */
             }
         }
     </style>
@@ -483,7 +487,7 @@
             </header>
 
             <div class="content-body">
-                <div class="section-title">Thông Tin Liên Hệ</div>
+                <div class="section-title">Các Trang Mạng Xã Hội</div>
 
                 <div class="link-grid">
                     <!-- Facebook -->
@@ -497,6 +501,20 @@
                         </div>
                         <div class="link-action">
                             <span class="btn-action">OPEN</span>
+                        </div>
+                    </div>
+
+                    <!-- Discord -->
+                    <div class="link-item clickable" onclick="copyToClipboard('hasukatsu', event)">
+                        <div class="link-thumb"
+                            style="background-image: url('https://images-eds-ssl.xboxlive.com/image?url=4rt9.lXDC4H_93laV1_eHHFT949fUipzkiFOBH3fAiZZUCdYojwUyX2aTonS1aIwMrx6NUIsHfUHSLzjGJFxxsG72wAo9EWJR4yQWyJJaDb6rYcBtJvTvH3UoAS4JFNDaxGhmKNaMwgElLURlRFeVkLCjkfnXmWtINWZIrPGYq0-&format=source');">
+                        </div>
+                        <div class="link-details">
+                            <div class="link-title">Discord</div>
+                            <div class="link-subtitle">hasukatsu</div>
+                        </div>
+                        <div class="link-action">
+                            <span class="btn-action blue">COPY</span>
                         </div>
                     </div>
 
