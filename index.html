@@ -564,7 +564,7 @@
                     </div>
                     <!-- Jellyfin -->
                     <div class="link-item clickable" onclick="openPopup(
-                        'Jellyfin của Hasu 🐧',
+                        'Jellyfin của Hasu',
                         'Muốn vào xem anime thì hãy liên hệ Hasu để tạo tài khoản trước nhé ✨<br><br>Sau khi có tài khoản thì dùng chính tài khoản đó để đăng nhập Jellyfin.',
                         'https://jellyfin.hasukatsu.site/'
                     )">
@@ -619,22 +619,6 @@
             <div class="popup-title" id="popupTitle"></div>
 
             <div class="popup-message" id="popupMessage"></div>
-
-            <div style="margin-top:25px;">
-                <button id="popupBtn" style="
-                        border:none;
-                        padding:12px 22px;
-                        border-radius:14px;
-                        background:linear-gradient(45deg,#ef9d64,#ff758f);
-                        color:white;
-                        font-weight:700;
-                        cursor:pointer;
-                        font-size:15px;
-                        box-shadow:0 8px 20px rgba(255,117,143,.3);
-                    ">
-                    Mở web
-                </button>
-            </div>
         </div>
     </div>
 
@@ -661,36 +645,35 @@
             });
         }
 
-        // Popup Logic
+        let popupTargetUrl = null;
+
         function openPopup(title, message, url) {
             const popup = document.getElementById('popup');
 
             document.getElementById('popupTitle').innerHTML = title;
             document.getElementById('popupMessage').innerHTML = message;
 
-            document.getElementById('popupBtn').onclick = () => {
-                window.open(url, '_blank');
-            };
+            popupTargetUrl = url;
 
             popup.classList.add('active');
-
-            const audio = document.getElementById('bgMusic');
-            if (audio.paused) {
-                audio.play().catch(() => { });
-            }
         }
 
         function closePopup() {
             document.getElementById('popup').classList.remove('active');
+
+            if (popupTargetUrl) {
+                window.open(popupTargetUrl, '_blank');
+                popupTargetUrl = null;
+            }
         }
 
         window.onload = function () {
             setTimeout(() => {
-                openPopup(
-                    'Chúc Bạn Một Ngày Tốt Lành',
-                    'Cảm ơn bạn đã ghé thăm bio của mình :>',
-                    'https://hasukatsu.site/'
-                );
+                document.getElementById('popupTitle').innerHTML =
+                    'Chúc Bạn Một Ngày Tốt Lành';
+                document.getElementById('popupMessage').innerHTML =
+                    'Cảm ơn bạn đã ghé thăm bio của mình :>';
+                document.getElementById('popup').classList.add('active');
             }, 500);
         }
 
