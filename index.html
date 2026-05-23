@@ -563,8 +563,11 @@
                         </div>
                     </div>
                     <!-- Jellyfin -->
-                    <div class="link-item clickable"
-                        onclick="window.open('https://jellyfin.hasukatsu.site/', '_blank')">
+                    <div class="link-item clickable" onclick="openPopup(
+                        'Jellyfin của Hasu 🐧',
+                        'Muốn vào xem anime thì hãy liên hệ Hasu để tạo tài khoản trước nhé ✨<br><br>Sau khi có tài khoản thì dùng chính tài khoản đó để đăng nhập Jellyfin.',
+                        'https://jellyfin.hasukatsu.site/'
+                    )">
                         <div class="link-thumb"
                             style="background-image: url('https://play-lh.googleusercontent.com/FAlWhVMAjAzI6Nxc7bf4KPgjbwA3GT9j2bzeAMnRpdWim_2SXnS9i4zhwasKWIC8PV4');">
                         </div>
@@ -577,7 +580,11 @@
                         </div>
                     </div>
                     <!-- Seerr -->
-                    <div class="link-item clickable" onclick="window.open('https://seerr.hasukatsu.site/', '_blank')">
+                    <div class="link-item clickable" onclick="openPopup(
+                        'Seerr Request 🎬',
+                        'Seerr dùng chung tài khoản Jellyfin để đăng nhập nha ✨<br><br>Nếu chưa có tài khoản thì hãy liên hệ Hasu trước.',
+                        'https://seerr.hasukatsu.site/'
+                    )">
                         <div class="link-thumb"
                             style="background-image: url('https://avatars.githubusercontent.com/u/101442446?v=4');">
                         </div>
@@ -603,11 +610,31 @@
     </audio>
 
     <!-- Popup -->
-    <div class="popup-overlay" id="welcomePopup">
+    <div class="popup-overlay" id="popup">
         <div class="popup-content">
-            <div class="popup-close" onclick="closePopup()"><i class="fas fa-times"></i></div>
-            <div class="popup-title">Chúc Bạn Một Ngày Tốt Lành</div>
-            <div class="popup-message">Cảm ơn bạn đã ghé thăm bio của mình :></div>
+            <div class="popup-close" onclick="closePopup()">
+                <i class="fas fa-times"></i>
+            </div>
+
+            <div class="popup-title" id="popupTitle"></div>
+
+            <div class="popup-message" id="popupMessage"></div>
+
+            <div style="margin-top:25px;">
+                <button id="popupBtn" style="
+                        border:none;
+                        padding:12px 22px;
+                        border-radius:14px;
+                        background:linear-gradient(45deg,#ef9d64,#ff758f);
+                        color:white;
+                        font-weight:700;
+                        cursor:pointer;
+                        font-size:15px;
+                        box-shadow:0 8px 20px rgba(255,117,143,.3);
+                    ">
+                    Mở web
+                </button>
+            </div>
         </div>
     </div>
 
@@ -635,18 +662,35 @@
         }
 
         // Popup Logic
-        function closePopup() {
-            document.getElementById('welcomePopup').classList.remove('active');
-            // Play music on user interaction (popup close) if autoplay failed
+        function openPopup(title, message, url) {
+            const popup = document.getElementById('popup');
+
+            document.getElementById('popupTitle').innerHTML = title;
+            document.getElementById('popupMessage').innerHTML = message;
+
+            document.getElementById('popupBtn').onclick = () => {
+                window.open(url, '_blank');
+            };
+
+            popup.classList.add('active');
+
             const audio = document.getElementById('bgMusic');
             if (audio.paused) {
-                audio.play().catch(e => console.log('Audio play failed: Autoplay policy may require user gesture', e));
+                audio.play().catch(() => { });
             }
+        }
+
+        function closePopup() {
+            document.getElementById('popup').classList.remove('active');
         }
 
         window.onload = function () {
             setTimeout(() => {
-                document.getElementById('welcomePopup').classList.add('active');
+                openPopup(
+                    'Chúc Bạn Một Ngày Tốt Lành',
+                    'Cảm ơn bạn đã ghé thăm bio của mình :>',
+                    'https://hasukatsu.site/'
+                );
             }, 500);
         }
 
